@@ -1,4 +1,7 @@
-stage('DeployToStaging') {
+pipeline {
+    agent any
+    stages {
+        stage('DeployToStaging') {
             when {
                 branch 'master'
             }
@@ -28,7 +31,7 @@ stage('DeployToStaging') {
                 }
             }
         }
-stage('DeployToProduction') {
+        stage('DeployToProduction') {
             when {
                 branch 'master'
             }
@@ -60,3 +63,5 @@ stage('DeployToProduction') {
                 }
             }
         }
+    }
+}
